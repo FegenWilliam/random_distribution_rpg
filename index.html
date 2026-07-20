@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Distribution RPG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <h1>Random Distribution RPG</h1>
+      <p class="tagline">You don't choose your growth. You roll for it.</p>
+    </header>
+
+    <section class="panel level-panel">
+      <div class="level-badge">
+        <span class="level-badge__label">LV</span>
+        <span class="level-badge__value" id="level">1</span>
+      </div>
+      <div class="exp">
+        <div class="exp__meta">
+          <span>EXP</span>
+          <span><span id="exp">0</span> / <span id="exp-needed">10</span></span>
+        </div>
+        <div class="exp__bar">
+          <div class="exp__fill" id="exp-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel stats-panel">
+      <h2>Stats</h2>
+      <ul class="stats" id="stats"></ul>
+    </section>
+
+    <section class="panel actions-panel">
+      <div class="points">
+        Unassigned stat points:
+        <strong id="stat-points">0</strong>
+      </div>
+      <div class="buttons">
+        <button id="gain-exp">Train (+EXP)</button>
+        <button id="assign" disabled>Assign (Randomly Distribute)</button>
+      </div>
+    </section>
+
+    <section class="panel log-panel">
+      <h2>Log</h2>
+      <ul class="log" id="log"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

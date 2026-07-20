@@ -1,0 +1,249 @@
+:root {
+  --bg: #12131a;
+  --panel: #1c1e2a;
+  --panel-border: #2b2e40;
+  --text: #e6e8f0;
+  --muted: #9aa0b5;
+  --accent: #6c8cff;
+  --accent-2: #ffc64b;
+  --hp: #ff6b6b;
+  --atk: #ff9f43;
+  --def: #4dd4c8;
+  --mp: #7b8cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at top, #1b1d29, var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.game {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.game__header {
+  text-align: center;
+}
+
+.game__header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Level panel */
+.level-panel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.level-badge {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #4a63c9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(108, 140, 255, 0.3);
+}
+
+.level-badge__label {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.level-badge__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.exp {
+  flex: 1;
+}
+
+.exp__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.exp__bar {
+  height: 14px;
+  background: #0e0f16;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.exp__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-2), #ffb01f);
+  transition: width 0.25s ease;
+}
+
+/* Stats */
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat__name {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.stat__bar {
+  height: 10px;
+  background: #0e0f16;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.stat__fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.stat__value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  min-width: 32px;
+  text-align: right;
+}
+
+.stat.gained .stat__value {
+  animation: pop 0.5s ease;
+  color: var(--accent-2);
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+/* Actions */
+.points {
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+.points strong {
+  color: var(--accent-2);
+  font-size: 1.2rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#gain-exp {
+  background: linear-gradient(135deg, #4dd4c8, #2fa89c);
+}
+
+#assign {
+  background: linear-gradient(135deg, var(--accent-2), #f0a500);
+  color: #2a2100;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Log */
+.log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 160px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.log li {
+  color: var(--muted);
+  padding: 4px 8px;
+  border-left: 2px solid var(--panel-border);
+}
+
+.log li.highlight {
+  color: var(--accent-2);
+  border-left-color: var(--accent-2);
+}
